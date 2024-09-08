@@ -42,7 +42,7 @@
           win_admin_password: "ansible123!"
         playbook: "project/{{ item.playbook }}"
         credentials:
-          - "Microsoft Azure Resource Manager"
+          - '{{ azuresetup_default_azure_cred | default("Microsoft Azure Resource Manager", true) }}'
         state: "present"
       with_items:
         - { playbook: 'create_resource_group.yml', name: 'Create Azure Resource Group' }
@@ -73,7 +73,7 @@
           win_admin_password: "ansible123!"
         playbook: "workflow/{{ item.playbook }}"
         credentials:
-          - "Microsoft Azure Resource Manager"
+          - '{{ azuresetup_default_azure_cred | default("Microsoft Azure Resource Manager", true) }}'
         state: "present"
       with_items:
         - { playbook: '01-create_resource_group.yml', name: 'WF-01-Create Resource Group' }
