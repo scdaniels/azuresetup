@@ -57,7 +57,7 @@
         inventory: "Demo Inventory"
         project: "Azure Demos Project"
         extra_vars:
-          resource_group_name: "{{ azuresetup_default_azure_rg | default(azure-demo, true) }}"
+          resource_group_name: "{{ azuresetup_default_azure_rg | default('azure-demo', true) }}"
           region: "{{ azuresetup_default_azure_region | default('eastus', true) }}"
           vnet_cidr: "10.0.0.0/16"
           subnet_cidr: "10.0.1.0/24"
